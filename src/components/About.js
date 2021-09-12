@@ -1,35 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
-let mode = {};
-
-export default function About() {
-  const [mode, setMode] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
-
-  const [btntext, setbBtnText] = useState('Enable Dark Mode')
-
-  const myDarkMode = () => {
-    if (mode.color === "black") {
-      setMode({ color: "white", backgroundColor: "black" , border: "1px solid white"});
-      setbBtnText('Enable Light Mode');
-  
-    }
-    else {
-      setMode({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setbBtnText('Enable Dark Mode')
-    }
+export default function About(props) {
+  let mode = {
+    backgroundColor: props.mode === "dark" ? "#13466e": "white",
+    color: props.mode === "dark" ? "white" : "black",
   };
-
   return (
-    <div className="container" style={mode}>
-      <h1 className="my-3">About Us</h1>
+    <div className="container">
+      <h1 className="my-3" style={{color: props.mode === "dark" ? "white" : "black"}}>About Us</h1>
       <div className="accordion" id="accordionExample" style={mode}>
-        <div className="accordion-item"style={mode}>
+        <div className="accordion-item" style={mode}>
           <h2 className="accordion-header" id="headingOne">
             <button
               className="accordion-button"
@@ -40,7 +20,7 @@ export default function About() {
               aria-controls="collapseOne"
               style={mode}
             >
-              Accordion Item #1
+              <strong>Analyze Your Text</strong>
             </button>
           </h2>
           <div
@@ -50,14 +30,8 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={mode}>
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              Textutils gives you a way to analyze your text quickly and
+              efficiently. Be it word cound, character count.
             </div>
           </div>
         </div>
@@ -72,7 +46,7 @@ export default function About() {
               aria-controls="collapseTwo"
               style={mode}
             >
-              Accordion Item #2
+              <strong>Free To Used</strong>
             </button>
           </h2>
           <div
@@ -82,14 +56,10 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={mode}>
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              textutils is a free character counter tool that provides instant
+              character count and word count statistics for a given text.
+              Textutlis report the number of word and characters. Thus it is
+              suitable for writing text with word and character limit.
             </div>
           </div>
         </div>
@@ -104,7 +74,7 @@ export default function About() {
               aria-controls="collapseThree"
               style={mode}
             >
-              Accordion Item #3
+              <strong>Browser Compatible</strong>
             </button>
           </h2>
           <div
@@ -114,22 +84,12 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={mode}>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              This word counter softwere works in any web browser such a chrome
+              ,firefox, Internet Exporer, Safari, Opera. It suits to count
+              character in facebook, blog, books, excel document, essays etc.
             </div>
           </div>
         </div>
-      </div>
-      <div className="container my-3">
-        <button type="button" className="btn btn-primary" onClick={myDarkMode}>
-          {btntext}
-        </button>
       </div>
     </div>
   );
