@@ -33,7 +33,7 @@ function App() {
   };
 
   return (
-    <>
+
       <Router>
         <Navbar
           title="TextUtils"
@@ -58,7 +58,7 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </>
+  
   );
 }
 
